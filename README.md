@@ -1,100 +1,87 @@
-📱 Sebacan — Gadget & Device Rental / Booking Platform
+# 📱 Sebacan — Gadget & Device Rental / Booking Platform
 
-Sebacan adalah platform web penyewaan (rental) dan pemesanan (booking) gadget berbasis framework Laravel. Aplikasi ini menyediakan pengalaman eksplorasi katalog perangkat berdasarkan merek, sistem alur pemesanan terstruktur, kalkulasi sewa, hingga ringkasan dan pelacakan transaksi pesanan.
+[![Laravel](https://img.shields.io/badge/Laravel-FF2D20?style=for-the-badge&logo=laravel&logoColor=white)](https://laravel.com/)
+[![PHP](https://img.shields.io/badge/PHP-777BB4?style=for-the-badge&logo=php&logoColor=white)](https://www.php.net/)
+[![MySQL](https://img.shields.io/badge/MySQL-005C84?style=for-the-badge&logo=mysql&logoColor=white)](https://www.mysql.com/)
+[![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-38B2AC?style=for-the-badge&logo=tailwind-css&logoColor=white)](https://tailwindcss.com/)
 
-🚀 Fitur Utama
+**Sebacan** adalah aplikasi web berbasis Laravel yang dirancang untuk mempermudah proses peminjaman / sewa (booking) perangkat dan gadget secara online. Platform ini menyediakan katalog produk terstruktur berdasarkan kategori dan brand, alur checkout yang terintegrasi, hingga pelacakan riwayat transaksi.
 
-Katalog Brand & Gadget: Telusuri berbagai jenis perangkat elektronik yang dikelompokkan berdasarkan merek dan kategori.
+---
 
-Detail Spesifikasi Unit: Halaman komprehensif yang memuat spesifikasi perangkat, status ketersediaan, serta ketentuan sewa.
+## 🚀 Fitur Utama
 
-Alur Pemesanan & Sewa Terintegrasi: Form reservasi unit dengan kalkulasi durasi serta biaya sewa transparan.
+- **Katalog Gadget & Brand:** Eksplorasi gadget berdasarkan brand dan spesifikasi.
+- **Sistem Booking & Sewa:** Alur pemesanan gadget dengan kalkulasi durasi dan biaya sewa.
+- **Halaman Detail Interaktif:** Informasi spesifikasi perangkat, ketersediaan unit, dan ketentuan sewa.
+- **Checkout & Riwayat Transaksi:** Ringkasan pesanan, konfirmasi pemesanan, dan pelacakan status transaksi (*Success Booking & Transaction Details*).
+- **Responsive UI:** Tampilan antarmuka bersih dan adaptif untuk perangkat mobile maupun desktop.
 
-Rincian Checkout & Konfirmasi: Ringkasan tagihan sewa dan halaman verifikasi pemesanan (Booking Success).
+---
 
-Riwayat & Detail Transaksi: Pantau daftar invoice dan status pemesanan perangkat yang sedang aktif maupun selesai.
+## 🛠️ Tech Stack
 
-Desain Responsif: Tampilan modern dan ramah pengguna di perangkat mobile maupun desktop.
+- **Framework:** Laravel 11 / PHP 8.2+
+- **Database:** MySQL
+- **Templating Engine:** Blade Components
+- **Frontend / Styling:** Tailwind CSS / CSS Framework
+- **Tools Lokal:** Laragon / Composer / Git
 
-🛠️ Tech Stack
+---
 
-Backend: Laravel 11 (PHP 8.2+)
+## 📂 Struktur Modul Tampilan (Views)
 
-Database: MySQL
-
-Templating Engine: Blade Components
-
-Frontend / Styling: Tailwind CSS
-
-Dependency Management: Composer & NPM
-
-Local Server: Laragon / PHP Built-in Server
-
-📂 Struktur Modul Tampilan (Views)
-
+```text
 resources/views/front/
 ├── layouts/
-│   └── app.blade.php              # Kerangka layout utama
-├── index.blade.php                # Landing page & showcase gadget unggulan
-├── gadgets.blade.php              # Daftar katalog seluruh gadget
-├── brands.blade.php               # Halaman kurasi berdasarkan merek
-├── details.blade.php              # Informasi lengkap & spesifikasi gadget
-├── booking.blade.php              # Formulir registrasi sewa
-├── checkout.blade.php             # Review pesanan & rincian pembayaran
-├── success_booking.blade.php      # Notifikasi pemesanan berhasil
-├── transactions.blade.php         # Daftar riwayat transaksi pengguna
-└── transaction_details.blade.php  # Detail rincian transaksi / invoice
-
+│   └── app.blade.php           # Template layout utama
+├── index.blade.php             # Beranda & showcase perangkat
+├── gadgets.blade.php           # Katalog daftar gadget
+├── brands.blade.php            # Daftar brand perangkat
+├── details.blade.php           # Detail spesifikasi & informasi produk
+├── booking.blade.php           # Formulir booking sewa
+├── checkout.blade.php          # Halaman rincian tagihan checkout
+├── success_booking.blade.php   # Konfirmasi pemesanan berhasil
+├── transactions.blade.php      # Daftar riwayat transaksi
+└── transaction_details.blade.php # Detail status invoice / pesanan
 
 💻 Panduan Instalasi Lokal
-
 Ikuti langkah-langkah berikut untuk menjalankan proyek ini di komputer lokal:
 
-1. Kloning Repositori
-
-git clone https://github.com/AdeCandra12/sebacan.git
+1. Clone Repositori
+Bash
+git clone [https://github.com/AdeCandra12/sebacan.git](https://github.com/AdeCandra12/sebacan.git)
 cd sebacan
 
-
 2. Pasang Dependensi
-
+Bash
 composer install
 npm install && npm run build
+3. Konfigurasi Environment
+Salin file template environment dan buat APP_KEY baru:
 
-
-3. Konfigurasi File Environment
-
-Salin file template .env.example dan buat kunci aplikasi baru:
-
+Bash
 cp .env.example .env
 php artisan key:generate
+Sesuaikan koneksi database pada file .env:
 
-
-Buka file .env dan sesuaikan koneksi database lokal:
-
+Cuplikan kode
 DB_CONNECTION=mysql
 DB_HOST=127.0.0.1
 DB_PORT=3306
 DB_DATABASE=sebacan
 DB_USERNAME=root
 DB_PASSWORD=
+4. Migrasi Database & Storage
+Buat database baru bernama sebacan di phpMyAdmin / MySQL, lalu jalankan migrasi:
 
-
-4. Migrasi Database & Symlink Storage
-
-Buat database bernama sebacan di phpMyAdmin / MySQL, lalu jalankan perintah:
-
+Bash
 php artisan migrate --seed
 php artisan storage:link
-
-
-5. Jalankan Server Pengembangan
-
+5. Jalankan Server
+Bash
 php artisan serve
+Buka browser dan akses aplikasi melalui http://127.0.0.1:8000.
 
-
-Buka browser Anda dan akses aplikasi di http://127.0.0.1:8000.
-
-👤 Penulis
-
-Ade Candra — https://github.com/AdeCandra12/
+👤 Author
+Ade Candra - GitHub Profile
